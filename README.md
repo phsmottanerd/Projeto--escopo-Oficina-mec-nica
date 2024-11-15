@@ -1,35 +1,41 @@
-🚗🔧 Escopo do Sistema de Controle de Ordens de Serviço - Oficina Mecânica 💼📊
+📊 Escopo do Sistema de Controle de Ordens de Serviço - Oficina Mecânica 🔧🚗
 Objetivo do Projeto:
-O objetivo deste projeto é o desenvolvimento de um sistema de controle e gerenciamento de ordens de serviço para uma oficina mecânica. O sistema tem como propósito otimizar a gestão das ordens de serviço (OS), o controle de clientes, veículos, serviços realizados, peças utilizadas e os mecânicos responsáveis pelas manutenções. Com isso, a oficina poderá agilizar o atendimento, melhorar o controle financeiro e garantir uma comunicação mais eficiente entre os clientes e a equipe de mecânicos.
+O projeto tem como objetivo a modelagem e implementação de um banco de dados para o controle de ordens de serviço (OS) em uma oficina mecânica, utilizando MySQL Workbench. O sistema gerencia informações sobre clientes, veículos, ordens de serviço, serviços realizados, peças utilizadas e mecânicos.
 
-Escopo Funcional:
-Cadastro de Clientes 🧑‍🤝‍🧑:
+Entidades e Relacionamentos:
+Cliente 🧑‍🤝‍🧑:
 
-Armazenamento de informações detalhadas sobre os clientes da oficina, como nome, telefone, e-mail e endereço.
-Cadastro de Veículos 🚗:
+Armazena dados dos clientes, como nome, telefone, endereço e e-mail.
+Relacionamento: Um cliente pode ter vários veículos.
+Veículo 🚗:
 
-Registro de veículos, incluindo dados como modelo, placa, ano de fabricação e histórico de manutenção.
-Ordens de Serviço (OS) 📋:
+Registra os veículos que pertencem aos clientes, com informações como modelo, placa e ano de fabricação.
+Relacionamento: Cada veículo pode ter várias ordens de serviço.
+Ordem de Serviço (OS) 📋:
 
-Criação de ordens de serviço que incluem os serviços solicitados, peças necessárias e a previsão de entrega do veículo.
-Cálculo de valores com base na tabela de mão de obra e no valor das peças.
-Cadastro de Serviços 🛠️:
+Contém os detalhes das ordens de serviço, incluindo data de entrega e valor estimado.
+Relacionamento: Cada ordem de serviço pode ter vários serviços e peças associadas.
+Serviço 🛠️:
 
-Tipos de serviços oferecidos pela oficina (ex.: troca de óleo, revisão geral, alinhamento, etc.).
-Relacionamento das ordens de serviço com os serviços que serão realizados.
-Cadastro de Peças ⚙️:
+Representa os tipos de serviços realizados na oficina, como revisões, troca de óleo, etc.
+Relacionamento: Cada serviço pode ser realizado em várias ordens de serviço e pode ser vinculado a um mecânico.
+Peça ⚙️:
 
-Registro de peças que serão utilizadas nas ordens de serviço, incluindo preço e quantidade disponível.
-Mecânicos 👨‍🔧👩‍🔧:
+Armazena as peças utilizadas em cada ordem de serviço, incluindo nome, quantidade e preço.
+Relacionamento: Cada peça pode ser associada a várias ordens de serviço.
+Mecânico 👨‍🔧👩‍🔧:
 
-Informações sobre os mecânicos, incluindo código, nome, especialidade e endereço.
-Atribuição de mecânicos às ordens de serviço de acordo com a especialidade.
-Relatórios 📈:
-
-Geração de relatórios de ordens de serviço, clientes atendidos, serviços realizados e peças utilizadas.
-Relacionamento entre Entidades:
-Cliente (1) -> (N) Veículo: Um cliente pode ter vários veículos.
-Veículo (1) -> (N) Ordem de Serviço: Um veículo pode ter várias ordens de serviço.
-Ordem de Serviço (1) -> (N) Serviço: Cada ordem de serviço pode conter vários serviços.
-Ordem de Serviço (1) -> (N) Peça: Cada ordem de serviço pode incluir várias peças.
-Mecânico (1) -> (N) Serviço: Cada mecânico pode executar diversos serviços em várias ordens de serviço.
+Registra os dados dos mecânicos, como nome, especialidade, endereço e código de identificação.
+Relacionamento: Um mecânico pode realizar vários serviços em diferentes ordens de serviço.
+Relacionamentos entre Entidades:
+Cliente (1) -> (N) Veículo: Um cliente pode ter vários veículos registrados.
+Veículo (1) -> (N) Ordem de Serviço: Cada veículo pode gerar diversas ordens de serviço ao longo do tempo.
+Ordem de Serviço (1) -> (N) Serviço: Cada ordem de serviço pode ter vários serviços associados.
+Ordem de Serviço (1) -> (N) Peça: Uma ordem de serviço pode envolver o uso de várias peças.
+Mecânico (1) -> (N) Serviço: Cada mecânico pode executar múltiplos serviços em várias ordens de serviço.
+Tecnologias Utilizadas:
+MySQL Workbench: Para o design e implementação do banco de dados, modelando as entidades e os relacionamentos descritos acima.
+Benefícios Esperados:
+Melhoria no gerenciamento das ordens de serviço e controle de estoque de peças.
+Eficiência no cálculo de valores para serviços e peças, com base em dados integrados no sistema.
+Maior controle das tarefas realizadas pelos mecânicos e a previsão de entrega dos veículos.
